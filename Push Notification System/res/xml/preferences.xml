@@ -10,7 +10,7 @@
                 android:title="Server IP"
                 android:summary="Enter Server's IP Address"
                 android:dialogTitle="Mithi Server IP Address" 
-                android:defaultValue=""
+                android:defaultValue="127.0.0.1"
                 android:inputType="number|numberDecimal"
     			android:digits="0123456789."
                 />
