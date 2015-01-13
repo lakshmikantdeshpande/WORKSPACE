@@ -18,6 +18,7 @@ package com.example.android.animationsdemo;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
@@ -25,6 +26,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Demonstrates a "screen-slide" animation using a {@link ViewPager}. Because {@link ViewPager}
@@ -109,7 +111,13 @@ public class ScreenSlideActivity extends FragmentActivity {
             	if((mPager.getCurrentItem() == mPagerAdapter.getCount() - 1))  
             	{
             		//if its last page of slider quit app
-            		finish();
+            		//finish();
+            		//Or start some new activity
+            		//Intent intent=new Intent(getApplicationContext(),SettingsActivity.class);
+            		//startActivity(intent);
+            		//For now, I'll choose popup
+            		
+            		Toast.makeText(getApplicationContext(), "No more pages to slide", Toast.LENGTH_LONG).show();
             	}
             	else
             	{

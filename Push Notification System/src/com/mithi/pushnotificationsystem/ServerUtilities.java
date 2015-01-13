@@ -71,7 +71,7 @@ public final class ServerUtilities {
 					return;
 				}
 
-				backoff = backoff * 2;
+				backoff *=2;
 			}
 		}
 		String message = context.getString(R.string.server_register_error,
