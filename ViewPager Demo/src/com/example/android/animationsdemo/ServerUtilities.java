@@ -30,7 +30,8 @@ public final class ServerUtilities {
     * Register this account/device pair within the server.
     *
     */
-   static void register(final Context context, String name, String email, final String regId) {
+   static void register(final Context context, String name, String email, final String regId) 
+   {
        Log.i(TAG, "registering device (regId = " + regId + ")");
        String serverUrl = SERVER_URL;
        Map<String, String> params = new HashMap<String, String>();
@@ -48,14 +49,14 @@ public final class ServerUtilities {
                displayMessage(context, context.getString(
                        R.string.server_registering, i, MAX_ATTEMPTS));
                post(serverUrl, params);
+               //If POST is successful, we can set setRegisteredOnServer to true
                GCMRegistrar.setRegisteredOnServer(context, true);
                String message = context.getString(R.string.server_registered);
                CommonUtilities.displayMessage(context, message);
                return;
            } catch (IOException e) {
-               // Here we are simplifying and retrying on any error; in a real
-               // application, it should retry only on unrecoverable errors
-               // (like HTTP error code 503).
+               // in final app, we can retry on unrecoverable errors only..
+        	   
                Log.e(TAG, "Failed to register on attempt " + i + ":" + e);
                if (i == MAX_ATTEMPTS) {
                    break;
@@ -63,14 +64,14 @@ public final class ServerUtilities {
                try {
                    Log.d(TAG, "Sleeping for " + backoff + " ms before retry");
                    Thread.sleep(backoff);
-               } catch (InterruptedException e1) {
-                   // Activity finished before we complete - exit.
+               } 
+               catch (InterruptedException ie) {
                    Log.d(TAG, "Thread interrupted: abort remaining retries!");
                    Thread.currentThread().interrupt();
                    return;
                }
-               // increase backoff exponentially
-               backoff *= 2;
+               // we can increase backoff time for ensuring registration on the server 
+               // backoff *= 2;
            }
        }
        String message = context.getString(R.string.server_register_error,

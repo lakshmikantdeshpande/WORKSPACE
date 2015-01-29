@@ -19,6 +19,7 @@ public class RegisterActivity extends Activity {
     // UI elements
     EditText txtName;
     EditText txtEmail;
+    
      
     // Register button
     Button btnRegister;
@@ -77,8 +78,7 @@ public class RegisterActivity extends Activity {
                     startActivity(i);
                     finish();
                 }else{
-                    // user doen't filled that data
-                    // ask him to fill the form
+                    // Details not inputted
                     alert.showAlertDialog(RegisterActivity.this, "Registration Error!", "Please enter your details", false);
                 }
             }
