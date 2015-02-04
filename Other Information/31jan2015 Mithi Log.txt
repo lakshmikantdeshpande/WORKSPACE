@@ -1,0 +1,381 @@
+login as: root
+root@192.168.0.140's password:
+Last login: Sat Jan 31 07:23:24 2015 from 192.168.0.19
+[root@Mailserver ~]# ls /mithi/
+mcs  temp
+[root@Mailserver ~]# ls /mithi/mcs/
+bin  components  modules  upgrade.history.txt  ver.txt
+[root@Mailserver ~]# /mithi/mcs/bin/manageservices.sh
+For a complete usage of the function, use the --help option
+Processing, please wait, it may take a few moments...
+
+
+
+TOOLS STATUS REPORT
+
+  Mail Scanner ON
+  Virus Scanning ON
+  Spam Scanning OFF. (Daemon: 'Daemon'; Spam control: '')
+  Mail Archiving OFF
+  Mail Masquerading OFF
+
+SERVICE STATUS REPORT
+
+ Webserver [httpd]                                         Running
+ Servlet runner [tomcat]                                   Running
+ Servlet runner2 [tomcat2]                                 Running
+ IMAP mail server [courier-imap]                           Running
+ IMAPS mail server [courier-imaps]                         Running
+ Courier Authlib Daemon [courier-authlib]                  Running
+ Open LDAP [ldap]                                          Running
+ Database [postgresql]                                     Running
+ SMTP mail server [qmail-smtp]                             Running
+ POP mail server [qmail-pop]                               Running
+ Queue service [qmail-queue]                               Running
+ Firewall [iptables]                                       Running
+ Instant Messaging [jabberd]                               Stopped
+ Clam daemon service [clamav]                              Running
+ Console Data Collector [consoledatacollector]             Stopped
+ POP3S mail server [qmail-pop3s]                           Stopped
+ SWM SMS Service [swm]                                     Stopped
+ Webcalender service [webcal]                              Running
+ mail archiving [archive]                                  Stopped
+ RSyslog [rsyslog]                                         Running
+ Memcached [memcached]                                     Running
+ IM Openfire [openfire]                                    Stopped
+ Postfix [mithipostfix]                                    Running
+ Nginx [nginx]                                             Stopped
+ Punjab [punjab]                                           Running
+ Turnserver [turnserver]                                   Stopped
+ WRSS [wrss]                                               Stopped
+ Stunnel [stunnel]                                         Stopped
+ Calendar Alarm [calendar-alarm]                           Stopped
+ DRBD [drbd]                                               Running
+ WRSS Mail Queue [wrss-mail-queue]                         Stopped
+
+                        Stopped: Fetchmail [fetchuser1]
+[root@Mailserver ~]#
+[root@Mailserver ~]#
+[root@Mailserver ~]# ls /mailstore/
+1200018configeventcheck.int                                       global_bulk                tc20001.int     tc208.com  test.int
+abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.int  lost+found                 tc20002.co.int  tc235.com  testmailstore2.int
+attachmentmailstore                                               processmailofflinestorage  tc204.int       testfile   testmailstore.int
+[root@Mailserver ~]# ls /mailstore/test.int/
+a001  m001  p001  s001
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_
+user_11_02_2013_12_19_25_805/ user_30_01_2015_16_29_18_647/ user_30_01_2015_16_29_31_938/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_
+user_11_02_2013_12_19_25_805/ user_30_01_2015_16_29_18_647/ user_30_01_2015_16_29_31_938/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_31_938/
+Maildir  mailstoreowner
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/
+cur  new  tmp
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/new/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/cur/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_
+user_30_01_2015_16_29_18_647/ user_30_01_2015_16_29_31_938/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_30_01_2015_16_29_
+user_30_01_2015_16_29_18_647/ user_30_01_2015_16_29_31_938/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_
+user_11_02_2013_12_19_25_805/ user_30_01_2015_16_29_18_647/ user_30_01_2015_16_29_31_938/
+[root@Mailserver ~]# find -type f /mailstore/test.int/
+find: paths must precede expression: /mailstore/test.int/
+Usage: find [-H] [-L] [-P] [-Olevel] [-D help|tree|search|stat|rates|opt|exec] [path...] [expression]
+[root@Mailserver ~]# find /mailstore/test.int/ -type f
+/mailstore/test.int/a001/user_30_01_2015_16_29_31_938/mailstoreowner
+/mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/.Trash/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/.spam/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_31_938/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/mailstoreowner
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/Maildir/.Trash/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/Maildir/new/1422615651.24341.Mailserver,S=862
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/Maildir/.spam/maildirfolder
+/mailstore/test.int/a001/user_30_01_2015_16_29_18_647/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/mailstoreowner
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/courierimapkeywords/.4742051.1422615144.19069.Mailserver,S=1839
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/cur/1422615144.19069.Mailserver,S=1839:2,S
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Trash/courierimapacl
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Trash/maildirfolder
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/new/1422615996.14462.Mailserver,S=3897
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/new/1422615996.14460.Mailserver,S=3906
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/new/1422616121.16228.Mailserver,S=580
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/new/1422616120.16193.Mailserver,S=4445
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/new/1422616121.16208.Mailserver,S=4417
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Sent Items/courierimapacl
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Sent Items/cur/1397436517.M405324P26166V0000000000000808I00000000001C02D3_0.Mailserver,S=1147:2,
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Sent Items/cur/1422615143.M765573P17760V0000000000000808I00000000001C0034_0.Mailserver,S=1128:2,
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Sent Items/courierimapuiddb
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.spam/courierimapacl
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.spam/maildirfolder
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/courierimapuiddb
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.chat/courierimapacl
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.chat/courierimapuiddb
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.chat/maildirfolder
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Drafts/courierimapacl
+/mailstore/test.int/a001/user_11_02_2013_12_19_25_805/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/mailstoreowner
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/courierimapkeywords/.4577818.1370941097.776.Mailserver,S=1895
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/courierimapkeywords/.4569804.1370941097.776.Mailserver,S=1895
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609482.16876.Mailserver,S=678:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16807.Mailserver,S=1728:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16843.Mailserver,S=1745:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16816.Mailserver,S=1714:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16675.Mailserver,S=680:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16673.Mailserver,S=685:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16645.Mailserver,S=670:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16838.Mailserver,S=1697:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16639.Mailserver,S=675:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16664.Mailserver,S=709:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16832.Mailserver,S=1676:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16813.Mailserver,S=1545:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16837.Mailserver,S=1659:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16636.Mailserver,S=679:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16635.Mailserver,S=646:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16833.Mailserver,S=1722:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16821.Mailserver,S=1721:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16823.Mailserver,S=1718:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16811.Mailserver,S=1662:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16828.Mailserver,S=1709:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16672.Mailserver,S=656:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16844.Mailserver,S=1712:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16831.Mailserver,S=1672:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16669.Mailserver,S=675:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16839.Mailserver,S=1647:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16840.Mailserver,S=1717:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609504.16888.Mailserver,S=1705:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16822.Mailserver,S=1705:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16841.Mailserver,S=1695:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16834.Mailserver,S=1705:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16842.Mailserver,S=1680:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16648.Mailserver,S=670:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16634.Mailserver,S=664:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16674.Mailserver,S=673:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609187.15979.Mailserver,S=502:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609460.16667.Mailserver,S=670:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609465.16815.Mailserver,S=1616:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/cur/1422609470.16864.Mailserver,S=681:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Trash/courierimapacl
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Trash/maildirfolder
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11419.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422636242.28321.Mailserver,S=691
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623489.3723.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621695.4741.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615924.9672.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617934.9865.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642777.15558.Mailserver,S=1128
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621799.12959.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615764.32423.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622414.3888.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617961.10705.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621673.2920.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621770.10410.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621680.3523.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621859.18028.Mailserver,S=643
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422618057.19124.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642794.17351.Mailserver,S=1414
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615797.1765.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622534.7965.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623613.4462.Mailserver,S=689
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623769.9871.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422616886.21035.Mailserver,S=648
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422664689.2222.Mailserver,S=689
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621784.11727.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422643464.29082.Mailserver,S=544
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615966.12781.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617849.7426.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617878.8251.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11423.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422664279.30421.Mailserver,S=1128
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422646262.1026.Mailserver,S=510
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617990.11622.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6645.Mailserver,S=792
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621716.6167.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623070.22368.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11420.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615780.812.Mailserver,S=658
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615730.30482.Mailserver,S=654
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621708.5560.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621849.17246.Mailserver,S=621
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422624777.15056.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422650269.15856.Mailserver,S=544
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615970.12985.Mailserver,S=621
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623743.7857.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6301.Mailserver,S=1631
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422612874.13502.Mailserver,S=710
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622496.6569.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623150.25577.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422624515.2673.Mailserver,S=662
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621849.17249.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621814.14171.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615886.7360.Mailserver,S=656
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615950.11569.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621730.7379.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623761.9239.Mailserver,S=650
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615818.3222.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621688.4137.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621891.19830.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610356.6812.Mailserver,S=800
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642796.17707.Mailserver,S=484
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621820.14770.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622307.32742.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621828.15446.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622383.3009.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621723.6767.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642801.18576.Mailserver,S=507
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11418.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615932.10268.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422617906.9063.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422630070.18173.Mailserver,S=691
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610356.6823.Mailserver,S=1658
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623617.4805.Mailserver,S=542
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615958.12190.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6623.Mailserver,S=1672
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622470.5664.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422664693.2600.Mailserver,S=542
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615811.2605.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623025.20588.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422630073.18517.Mailserver,S=544
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615702.29643.Mailserver,S=686
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422636244.28666.Mailserver,S=544
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610356.6827.Mailserver,S=1672
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615895.7974.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422624793.16211.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615982.13997.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422643461.28706.Mailserver,S=691
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622374.2361.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422646258.31765.Mailserver,S=712
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615826.3789.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615855.5595.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621777.11076.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623058.21726.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621737.8008.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422616877.20228.Mailserver,S=613
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11424.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6592.Mailserver,S=1679
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621065.18698.Mailserver,S=1128
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621792.12356.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615941.10912.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422624499.1583.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623732.7109.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6423.Mailserver,S=1672
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610356.6734.Mailserver,S=1672
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642788.16538.Mailserver,S=702
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621842.16658.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621806.13564.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610355.6511.Mailserver,S=1658
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615974.13387.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422639056.30836.Mailserver,S=445
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610855.17501.Mailserver,S=457
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621762.9782.Mailserver,S=656
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422618099.20574.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621871.18909.Mailserver,S=678
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623783.10869.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422650265.15480.Mailserver,S=691
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422639056.30887.Mailserver,S=1312
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621906.20660.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615847.4994.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622441.4790.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422618069.19753.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422622341.1194.Mailserver,S=609
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623097.23356.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422642802.18860.Mailserver,S=1155
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422650716.23660.Mailserver,S=724
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422610364.9809.Mailserver,S=812
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422623138.24933.Mailserver,S=666
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615912.8807.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615745.31362.Mailserver,S=674
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621930.21859.Mailserver,S=611
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422657462.9329.Mailserver,S=689
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11422.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422615839.4400.Mailserver,S=627
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422614828.11421.Mailserver,S=664
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422621835.16051.Mailserver,S=629
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/new/1422657466.9690.Mailserver,S=542
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/courierimapacl
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1397436467.M648015P26114V0000000000000808I00000000001C02D2_0.Mailserver,S=1157:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1397102098.M186130P32281V0000000000000808I00000000001C01E1_0.Mailserver,S=1178:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1385084659.M402885P31396V0000000000000808I00000000001C01C1_0.Mailserver,S=2565260:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1397109715.M491312P26107V0000000000000808I00000000001C02A2_0.Mailserver,S=1172:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1385082898.M969053P26006V0000000000000808I00000000001C0199_0.Mailserver,S=1160:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1397108276.M546593P31166V0000000000000808I00000000001C029F_0.Mailserver,S=1218:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1397436264.M668464P24761V0000000000000808I00000000001C02D0_0.Mailserver,S=1162:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1410938508.M960270P22584V0000000000000808I00000000001C02B9_0.Mailserver,S=1156:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1410941984.M403874P10914V0000000000000808I00000000001C0324_0.Mailserver,S=1144:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/cur/1370941097.M241858P751V0000000000000808I00000000001C0064_0.Mailserver,S=1163:2,
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/courierimapuiddb
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.spam/courierimapacl
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.spam/maildirfolder
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/courierimapuiddb
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.chat/courierimapacl
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.chat/courierimapuiddb
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.chat/maildirfolder
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Drafts/courierimapacl
+/mailstore/test.int/p001/user_11_02_2013_12_19_25_11/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/mailstoreowner
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/cur/1375756505.6312.Mailserver,S=1894:2,
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Trash/courierimapacl
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Trash/maildirfolder
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Sent Items/courierimapacl
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Sent Items/cur/1375756502.M231796P6104V0000000000000808I00000000001C0167_0.Mailserver,S=1189:2,
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Sent Items/courierimapuiddb
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.spam/courierimapacl
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.spam/courierimapuiddb
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.spam/maildirfolder
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/courierimapuiddb
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.chat/courierimapacl
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.chat/courierimapuiddb
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.chat/maildirfolder
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Drafts/courierimapacl
+/mailstore/test.int/m001/user_06_08_2013_07_47_21_973/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/mailstoreowner
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/courierimapkeywords/.4585856.1375756514.6633.Mailserver,S=1896
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Trash/courierimapacl
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Trash/courierimapuiddb
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Trash/maildirfolder
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Sent Items/courierimapacl
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Sent Items/maildirfolder
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.spam/courierimapacl
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.spam/maildirfolder
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/courierimapuiddb
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.chat/courierimapacl
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.chat/courierimapuiddb
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.chat/maildirfolder
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Drafts/courierimapacl
+/mailstore/test.int/s001/user_11_02_2013_12_19_25_235/Maildir/.Drafts/maildirfolder
+/mailstore/test.int/s001/support/arhome/message.txt
+[root@Mailserver ~]# ssh 192.168.0.72
+The authenticity of host '192.168.0.72 (192.168.0.72)' can't be established.
+RSA key fingerprint is f0:0a:8d:5c:ec:b9:e4:48:9e:b7:ab:ab:db:ea:b8:12.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.0.72' (RSA) to the list of known hosts.
+root@192.168.0.72's password:
+Last login: Sat Jan 31 07:34:42 2015 from 192.168.0.65
+[root@Mailserver ~]#
+[root@Mailserver ~]# /mithi/mcs/bin/getuserproperties.sh --domain test.int --user abuse --output messagestore
+Result=SUCCESS
+Message=getuserproperties completed successfully
+
+SUCCESSFUL Operations :
+Domain||User||Mail store path (messagestore)||
+
+test.int||abuse||/mailstore/test.int/a001/user_29_01_2015_12_24_44_414/||
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/
+ls: cannot access /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/: No such file or directory
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_41
+user_29_01_2015_12_24_44_414/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/
+Maildir  mailstoreowner
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/new/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/new/
+1422670461.23703.Mailserver,S=1917
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/new/
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/cur/
+1422670461.23703.Mailserver,S=1917:2,
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/cur/
+1422670461.23703.Mailserver,S=1917:2,S
+[root@Mailserver ~]# ls /mailstore/test.int/a001/user_29_01_2015_12_24_44_414/Maildir/cur/

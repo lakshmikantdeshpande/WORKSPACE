@@ -1,0 +1,67 @@
+Rough notes
+
+
+
+com.fsck.k9
+
+
+
+
+MySQL Username : root
+MySQL Password : 
+
+API 15 Ice Cream Sandwitch
+
+Google developers console
+Create Project  >> 'BE Project'
+Sender/Project ID : 69552156334
+
+Enable an API >> Google Cloud Messaging API  >> ON
+No quotas
+
+API & Auth >> Credentials
+Create Server key
+
+Project ID is  Sender ID
+
+API key is for  Authentication
+
+
+
+Key for server applications
+
+API KEY 			AIzaSyAxz1UUkvlbZK5WqZ-Ec7B9rmTatn9PUUA
+IPS  				0.0.0.0/0
+ACTIVATION DATE 	Aug 3, 2014, 1:21:00 PM 
+ACTIVATED BY 		lakshmikantdeshpande@gmail.com (you)
+
+My registration ID : APA91bEPP0FdNjncyfo8RVVqCT0BMHZ_fkKo89Zoh4fg7tqzT0ielwHxE--YWWuIAISjeSk3fhFeLyPB12A0gZwHdtDXY-sxtK81jFNAmarjkXoOfqv1twXnBVZT_iH-fxWur6zfZKDgG0wAR0heIkvsrIk_teXVlDjEh-8uaczPbUSb2dzH8s8
+===================================================================================
+Change password of tomcat server
+
+XAMPP
+tomcat > tomcat_users.xml
+add default username and password by replacing last line in tomcat_users with
+
+  <role rolename="manager-script"/>
+  <role rolename="manager-gui"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <role rolename="admin"/>
+  <user username="lakshmikant" password="password" roles="admin,manager,manager-gui,manager-jmx,manager-status"/>
+</tomcat-users>
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+
+the Android Developer's Cookbook: Building Applications with the Android SDK
+

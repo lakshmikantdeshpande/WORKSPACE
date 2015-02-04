@@ -1,0 +1,12 @@
+
+FOR OPENING k9 AFTER RECEIVING PUSH NOTIFICATION, 
+
+if(newMessage != null && !newMessage.isEmpty() && newMessage.equals("Hey there !! :P"))
+           {
+               Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.fsck.k9");
+               startActivity(LaunchIntent);
+           }
+		   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
