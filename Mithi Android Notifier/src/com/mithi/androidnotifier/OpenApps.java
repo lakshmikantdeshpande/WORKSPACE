@@ -1,10 +1,8 @@
 package com.mithi.androidnotifier;
 
-import static com.mithi.androidnotifier.CommonUtilities.EXTRA_MESSAGE;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 public class OpenApps extends Activity  {

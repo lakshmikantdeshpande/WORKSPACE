@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.mithi.androidnotifier.R;
 
 /**
@@ -83,6 +82,12 @@ public class ScreenSlidePageFragment extends Fragment {
     		rootView = (ViewGroup) inflater
             .inflate(R.layout.welcome5, container, false);
    		 return rootView;
+   		 
+    	case 5:
+    		rootView = (ViewGroup) inflater
+            .inflate(R.layout.welcome6, container, false);
+   		 return rootView;
+   		 
     		
         // Set the title view to show the page number.
        // ((TextView) rootView.findViewById(android.R.id.text1)).setText(getString(R.string.title_template_step, mPageNumber + 1));
