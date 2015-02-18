@@ -18,7 +18,7 @@ import static com.mithi.androidnotifier.CommonUtilities.SENDER_ID;
 import static com.mithi.androidnotifier.CommonUtilities.displayMessage;
  
 public class GCMIntentService extends GCMBaseIntentService {
- 
+	
     private static final String TAG = "GCMIntentService";
  
     public GCMIntentService() {
@@ -106,12 +106,11 @@ public class GCMIntentService extends GCMBaseIntentService {
         PendingIntent intent = PendingIntent.getActivity(context, (int)System.currentTimeMillis(), notificationIntent, PendingIntent.FLAG_ONE_SHOT);
         //FLAG_UPDATE_CURRENT will allow passing parameters 
         
-        
         notification.setLatestEventInfo(context, title, message, intent);
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
          
         //adding LED lights to notification
-        notification.defaults |= Notification.DEFAULT_LIGHTS;
+        notification.flags |= Notification.FLAG_SHOW_LIGHTS;
         
         // Play default notification sound
         notification.defaults |= Notification.DEFAULT_SOUND;

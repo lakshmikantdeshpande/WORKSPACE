@@ -72,13 +72,9 @@ public class ScreenSlideActivity extends FragmentActivity {
             	if((mPager.getCurrentItem() == mPagerAdapter.getCount() - 1))  
             	{
             		//if its last page of slider quit app
-            		//finish();
-            		//Or start some new activity
-            		//Intent intent=new Intent(getApplicationContext(),SettingsActivity.class);
-            		//startActivity(intent);
-            		//For now, I'll choose popup
-            		
-            		Toast.makeText(getApplicationContext(), "No more pages to slide", Toast.LENGTH_LONG).show();
+            		finish();
+            		Intent intent=new Intent(getApplicationContext(),MainScreen.class);
+            		startActivity(intent);
             	}
             	else
             	{
