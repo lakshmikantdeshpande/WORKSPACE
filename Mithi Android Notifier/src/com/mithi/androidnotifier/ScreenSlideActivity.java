@@ -73,7 +73,7 @@ public class ScreenSlideActivity extends FragmentActivity {
             	{
             		//if its last page of slider quit app
             		finish();
-            		Intent intent=new Intent(getApplicationContext(),MainScreen.class);
+            		Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             		startActivity(intent);
             	}
             	else

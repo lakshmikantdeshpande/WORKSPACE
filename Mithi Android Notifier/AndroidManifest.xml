@@ -38,7 +38,7 @@
 		<activity android:name="com.mithi.androidnotifier.OpenApps" >
         </activity>
         
-        <activity android:name="com.mithi.androidnotifier.MainScreen" >
+        <activity android:name="com.mithi.androidnotifier.MainActivity" >
         </activity>
        
         <activity android:name="com.mithi.androidnotifier.CheckRegistration" 
