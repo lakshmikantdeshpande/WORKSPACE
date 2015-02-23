@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="fill_parent"
-        android:layout_height="533dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/splash_background" />
+        android:layout_width="316dp"
+        android:layout_height="322dp"
+        android:background="#cccccc"
+        android:src="@drawable/splash" />
 
 </LinearLayout>
