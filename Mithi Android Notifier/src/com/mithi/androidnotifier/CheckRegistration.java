@@ -3,6 +3,7 @@ package com.mithi.androidnotifier;
 import com.google.android.gcm.GCMRegistrar;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,8 +37,7 @@ public void onCreate(Bundle savedInstanceState) {
     		catch(InterruptedException ie)
     		{
     			handler.post(new Runnable(){
-    				@Override
-					public void run()
+    				public void run()
     				{
     					Toast.makeText(getApplicationContext(), "Some kind of error has been occured !", Toast.LENGTH_SHORT).show();
     				}
@@ -50,8 +50,7 @@ public void onCreate(Bundle savedInstanceState) {
     			    	//Toast.makeText(getApplicationContext(), "Already registered with GCM", Toast.LENGTH_LONG).show();
 
     				 handler.post(new Runnable(){
-    					 @Override
-						public void run()
+    					 public void run()
     					 {
     						 Toast.makeText(getApplicationContext(), "Already registered with GCM", Toast.LENGTH_LONG).show();
     					 }
@@ -68,8 +67,7 @@ public void onCreate(Bundle savedInstanceState) {
     				 //Toast.makeText(getApplicationContext(), "You have not registered it seems !", Toast.LENGTH_LONG).show();
     				 
     				 handler.post(new Runnable(){
-    					 @Override
-						public void run()
+    					 public void run()
     					 {
     						 Toast.makeText(getApplicationContext(), "You have not registered it seems !", Toast.LENGTH_LONG).show();
     					 }

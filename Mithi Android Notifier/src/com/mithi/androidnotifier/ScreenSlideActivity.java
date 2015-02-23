@@ -10,11 +10,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import com.mithi.androidnotifier.R;
 
 public class ScreenSlideActivity extends FragmentActivity {
 
-    private static final int NUM_PAGES = 6;
+    private static final int NUM_PAGES = 5;
 
     private ViewPager mPager;
 
@@ -33,15 +34,7 @@ public class ScreenSlideActivity extends FragmentActivity {
             @Override
             public void onPageSelected(int position) {
             	invalidateOptionsMenu();
-            	if((mPager.getCurrentItem() == mPagerAdapter.getCount() - 1))  
-            	{
-            		//if its last page of slider quit app
-            		finish();
-            		Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-            		startActivity(intent);
-            	}
             }
-
         });
     }
 

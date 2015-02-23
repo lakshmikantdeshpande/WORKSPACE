@@ -12,7 +12,6 @@
     <string name="action_previous">Previous</string>
     <string name="action_next">Next</string>
     <string name="action_finish">Finish</string>
-    <string name="action_website">Visit Mithi</string>
 
     <!-- Other strings -->
     <string name="hello_world">Hello world!</string>
@@ -38,11 +37,4 @@
     <string name="options_clear">Clear</string>
     <string name="options_exit">Exit</string>
      
-    <!-- Navigation Drawer specific strings -->
-    <string name="title_section1">Mithi Notifier</string>
-    <string name="title_section2">Inbox</string>
-    <string name="title_section3">Contact us</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    
 </resources>

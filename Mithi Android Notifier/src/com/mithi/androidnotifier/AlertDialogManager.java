@@ -30,8 +30,7 @@ public class AlertDialogManager {
  
         // Setting OK Button
         alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-			public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int which) {
             }
         });
  
