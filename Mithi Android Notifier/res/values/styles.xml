@@ -12,9 +12,10 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
+-->
 
 <resources>
+
     <style name="DarkTheme" parent="android:Theme.Holo">
         <item name="android:actionBarStyle">@style/DarkActionBar</item>
     </style>
@@ -22,4 +23,5 @@
     <style name="DarkActionBar" parent="android:Widget.Holo.ActionBar">
         <item name="android:background">@android:color/transparent</item>
     </style>
+    
 </resources>
