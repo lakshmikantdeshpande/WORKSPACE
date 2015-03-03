@@ -73,8 +73,8 @@ public void onCreate(Bundle savedInstanceState) {
     					 }
     				 });
     				 
-    				 Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
-    				 //Intent intent=new Intent(getApplicationContext(),RegisterActivity.class);
+    				// Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
+    				 Intent intent=new Intent(getApplicationContext(),RegisterActivity.class);
     				 startActivity(intent);        
     				 /*      SharedPreferences.Editor editor = mPrefs.edit();
     			        editor.putBoolean(prefs, true);
