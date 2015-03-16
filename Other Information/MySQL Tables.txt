@@ -10,3 +10,13 @@ CREATE TABLE IF NOT EXISTS `gcm_users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `registration` (
+  `email` varchar(255) NOT NULL primary key,
+  `gcm` text NOT NULL,
+  `mpns` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into registration values('sd0389@gmail.com','APA91bGkPqBHx6C1kBjkwJzxvOyfCx9jm4V-hu8G_2T7y-OPc2gOlsR37GxTK0giBd17EAwMX63Lwcs3ybUEFevYMjfQNLhgLlWSFJEJmu4TQuIrz-qh1MhfhA8ktMS3apqiG4mUKFIV3TF7w20yXKMOeq7vm0IQycpdbAhTthB7goZBuqbuA_c','bye');
