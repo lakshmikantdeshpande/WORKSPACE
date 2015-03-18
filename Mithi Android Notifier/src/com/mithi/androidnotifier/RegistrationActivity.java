@@ -30,8 +30,8 @@ public class RegistrationActivity extends Activity {
    // Connection detector
    ConnectionDetector cd;
     
-   public static String name;
    public static String email;
+   public static String password;
 
    @Override
    public void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class RegistrationActivity extends Activity {
        // Getting name, email from intent
        Intent i = getIntent();
         
-       name = i.getStringExtra("name");
-       email = i.getStringExtra("email");      
+       email = i.getStringExtra("email");
+       password = i.getStringExtra("password");      
         
        // Make sure the device has the proper dependencies.
        GCMRegistrar.checkDevice(this);
@@ -92,7 +92,7 @@ public class RegistrationActivity extends Activity {
                    protected Void doInBackground(Void... params) {
                        // Register on our server
                        // On server creates a new user
-                       ServerUtilities.register(context, name, email, regId);
+                       ServerUtilities.register(context, email, password, regId);
                        return null;
                    }
 

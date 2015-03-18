@@ -55,6 +55,8 @@ public void onCreate(Bundle savedInstanceState) {
     						 Toast.makeText(getApplicationContext(), "Already registered with GCM", Toast.LENGTH_LONG).show();
     					 }
     				 });
+    				 
+    				 
     				 Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
     				 startActivity(intent);
     			 }

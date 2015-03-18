@@ -19,8 +19,8 @@ public class RegisterActivity extends Activity {
     ConnectionDetector cd;
      
     // UI elements
-    EditText txtName;
     EditText txtEmail;
+    EditText txtPassword;
     
      
     // Register button
@@ -53,10 +53,12 @@ public class RegisterActivity extends Activity {
              return;
         }
          
-        txtName = (EditText) findViewById(R.id.txtName);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
+        txtPassword = (EditText) findViewById(R.id.txtPassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
          
+        
+        
         /*
          * Click event on Register button
          * */
@@ -64,23 +66,29 @@ public class RegisterActivity extends Activity {
              
             @Override
             public void onClick(View arg0) {
-                // Read EditText dat
-                String name = txtName.getText().toString();
-                String email = txtEmail.getText().toString();
-                 
+            	
+                String email = txtEmail.getText().toString().trim();
+                String password = txtPassword.getText().toString();
+                
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                
                 // Check if user filled the form
-                if(name.trim().length() > 0 && email.trim().length() > 0){
+                if(email.trim().length() > 0 && password.trim().length() > 0 && email.matches(emailPattern)){
                     // Launch Main Activity
                     Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
                      
                     // Registering user on our server                   
                     // Sending registraiton details to RegistrationActivity
-                    i.putExtra("name", name);
                     i.putExtra("email", email);
+                    i.putExtra("password", password);
                     startActivity(i);
                     finish();
-                }else{
-                    // Details not inputted
+                }else if(!email.matches(emailPattern)){
+                	alert.showAlertDialog(RegisterActivity.this, "Invalid Email ID!", "Please enter a valid Email address !", false);
+                }
+                else
+                {
+                	// Details not inputted
                     alert.showAlertDialog(RegisterActivity.this, "Registration Error!", "Please enter your details", false);
                 }
             }

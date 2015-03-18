@@ -31,14 +31,14 @@ public final class ServerUtilities {
     * Register this account/device pair within the server.
     *
     */
-   static void register(final Context context, String name, String email, final String regId) 
+   static void register(final Context context, String email, String password, final String regId) 
    {
        Log.i(TAG, "registering device (regId = " + regId + ")");
        String serverUrl = SERVER_URL;
        Map<String, String> params = new HashMap<String, String>();
        params.put("regId", regId);
-       params.put("name", name);
        params.put("email", email);
+       params.put("password", password);
         
        long backoff = BACKOFF_MILLI_SECONDS + random.nextInt(1000);
        // Once GCM returns a registration id, we need to register on our server
@@ -57,6 +57,8 @@ public final class ServerUtilities {
                GCMRegistrar.setRegisteredOnServer(context, true);
                String message = context.getString(R.string.server_registered);
                CommonUtilities.displayMessage(context, message);
+               
+               
                return;
            } catch (IOException e) {
                // in final app, we can retry on unrecoverable errors only..
@@ -157,7 +159,7 @@ public final class ServerUtilities {
            int status = conn.getResponseCode();
            Log.d("serverutilities","response code is"+status);
            if (status != 200) {
-             throw new IOException("Post failed with error code " + status);
+             throw new IOException("Authentication failed with error code " + status);
            }
        } finally {
            if (conn != null) {

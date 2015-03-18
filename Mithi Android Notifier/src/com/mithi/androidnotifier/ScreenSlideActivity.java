@@ -75,6 +75,7 @@ public class ScreenSlideActivity extends FragmentActivity {
             		finish();
             		Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             		startActivity(intent);
+            		
             	}
             	else
             	{
