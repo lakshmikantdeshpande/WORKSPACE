@@ -12,24 +12,15 @@ public final class CommonUtilities {
    // Google project id
    static final String SENDER_ID = "69552156334"; 
 
-   /**
-    * Tag used on log messages.
-    */
    static final String TAG = "Mithi GCM";
 
-   static final String DISPLAY_MESSAGE_ACTION =
-           "com.mithi.androidnotifier.DISPLAY_MESSAGE";
+   static final String DISPLAY_MESSAGE_ACTION = "com.mithi.androidnotifier.DISPLAY_MESSAGE";
 
    static final String EXTRA_MESSAGE = "message";
 
    /**
     * Notifies UI to display a message.
-    * <p>
-    * This method is defined in the common helper because it's used both by
-    * the UI and the background service.
-    *
-    * @param context application's context.
-    * @param message message to be displayed.
+    * Used by UI as well as background service
     */
    static void displayMessage(Context context, String message) {
        Intent intent = new Intent(DISPLAY_MESSAGE_ACTION);
