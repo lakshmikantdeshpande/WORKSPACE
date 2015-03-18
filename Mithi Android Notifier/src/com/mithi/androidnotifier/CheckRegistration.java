@@ -39,7 +39,7 @@ public void onCreate(Bundle savedInstanceState) {
     			handler.post(new Runnable(){
     				public void run()
     				{
-    					Toast.makeText(getApplicationContext(), "Some kind of error has been occured !", Toast.LENGTH_SHORT).show();
+    					Toast.makeText(getApplicationContext(), "Couldn't display splash screen !", Toast.LENGTH_SHORT).show();
     				}
     			});
     		}

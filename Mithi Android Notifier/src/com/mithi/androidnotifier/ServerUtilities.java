@@ -50,6 +50,9 @@ public final class ServerUtilities {
                displayMessage(context, context.getString(
                        R.string.server_registering, i, MAX_ATTEMPTS));
                post(serverUrl, params);
+               
+               
+               
                //If POST is successful, we can set setRegisteredOnServer to true
                GCMRegistrar.setRegisteredOnServer(context, true);
                String message = context.getString(R.string.server_registered);
@@ -152,6 +155,7 @@ public final class ServerUtilities {
            out.close();
            // handle the response
            int status = conn.getResponseCode();
+           Log.d("serverutilities","response code is"+status);
            if (status != 200) {
              throw new IOException("Post failed with error code " + status);
            }
