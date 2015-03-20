@@ -18,10 +18,9 @@ import com.google.android.gcm.GCMRegistrar;
 import com.mithi.androidnotifier.R;
 
 public class RegistrationActivity extends Activity {
-	// label to display gcm messages
+
 	TextView lblMessage;
 
-	// Asyntask
 	AsyncTask<Void, Void, Void> mRegisterTask;
 
 	// Alert dialog manager
@@ -43,9 +42,7 @@ public class RegistrationActivity extends Activity {
 		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
 			// Internet Connection is not present
-			alert.showAlertDialog(RegistrationActivity.this,
-					"Internet Connection Error",
-					"Please connect to working Internet connection", false);
+			alert.showAlertDialog(RegistrationActivity.this,"Internet Connection Error","Please connect to working Internet connection", false);
 			// stop executing code by return
 			return;
 		}
@@ -62,7 +59,7 @@ public class RegistrationActivity extends Activity {
 		// Make sure the manifest was properly set
 		GCMRegistrar.checkManifest(this);
 
-		lblMessage = (TextView) findViewById(R.id.lblMessage);
+		//lblMessage = (TextView) findViewById(R.id.lblMessage);
 
 		registerReceiver(mHandleMessageReceiver, new IntentFilter(DISPLAY_MESSAGE_ACTION));
 
@@ -87,14 +84,18 @@ public class RegistrationActivity extends Activity {
 
 					@Override
 					protected Void doInBackground(Void... params) {
-						// Register on our server
+						// Register on mithi server
 						ServerUtilities.register(context, email, password, regId);
+
 						return null;
 					}
 
 					@Override
 					protected void onPostExecute(Void result) {
 						mRegisterTask = null;
+
+						//Finish transparent activity after successful/failed registration on the server
+						finish();
 					}
 
 				};

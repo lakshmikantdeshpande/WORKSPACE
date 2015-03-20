@@ -82,7 +82,7 @@ public class RegisterActivity extends Activity {
                     i.putExtra("email", email);
                     i.putExtra("password", password);
                     startActivity(i);
-                    finish();
+                    //finish();
                 }else if(!email.matches(emailPattern)){
                 	alert.showAlertDialog(RegisterActivity.this, "Invalid Email ID!", "Please enter a valid Email address !", false);
                 }
