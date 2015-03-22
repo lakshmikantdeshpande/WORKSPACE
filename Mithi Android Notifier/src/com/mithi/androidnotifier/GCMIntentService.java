@@ -117,6 +117,9 @@ public class GCMIntentService extends GCMBaseIntentService {
          
         //adding LED lights to notification
         notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+        notification.ledARGB = 0xff00ff00;
+        notification.ledOnMS = 300;
+        notification.ledOffMS = 1000;
         
         // Play default notification sound
         notification.defaults |= Notification.DEFAULT_SOUND;
