@@ -2,7 +2,9 @@ package com.mithi.androidnotifier;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
@@ -10,11 +12,11 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-import com.mithi.androidnotifier.R;
 
 public class ScreenSlideActivity extends FragmentActivity {
 
+	SharedPreferences sharedPref;
+	
     private static final int NUM_PAGES = 5;
 
     private ViewPager mPager;
@@ -25,7 +27,8 @@ public class ScreenSlideActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
-
+		sharedPref=getBaseContext().getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);        
+        
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
@@ -76,6 +79,10 @@ public class ScreenSlideActivity extends FragmentActivity {
             		Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             		startActivity(intent);
             		
+            		//This will set INTRO_SHOWN flag to true
+            		SharedPreferences.Editor editor = sharedPref.edit();
+            		editor.putString("INTRO_SHOWN", "true");
+            		editor.commit();        		
             	}
             	else
             	{
