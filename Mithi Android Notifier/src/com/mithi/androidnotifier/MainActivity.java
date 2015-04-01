@@ -1,22 +1,20 @@
 package com.mithi.androidnotifier;
 
-import android.app.Activity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends Activity implements
 NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -116,7 +114,9 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment {
+	public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
+		Button button1;
+		
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -142,6 +142,10 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
+			
+			button1=(Button)rootView.findViewById(R.id.button1);
+			button1.setOnClickListener(this);
+			
 			return rootView;
 		}
 
@@ -151,6 +155,15 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 			((MainActivity) activity).onSectionAttached(getArguments().getInt(
 					ARG_SECTION_NUMBER));
 		}
+
+		@Override
+		public void onClick(View v) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+			String currentDateandTime = sdf.format(new Date());
+			DatabaseHandler dbh=new DatabaseHandler("Hello",currentDateandTime);
+			dbh.save();
+		}
+		
 	}
 
 }
