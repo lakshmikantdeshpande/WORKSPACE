@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dip"
         android:layout_marginBottom="20dip"
-        android:inputType="textWebEmailAddress" />
+        android:inputType="textWebEmailAddress"
+        android:text="sd0389@gmail.com" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -40,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dip"
         android:layout_marginBottom="20dip"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" 
+        android:text="inspiron"/>
 
     <Button
         android:id="@+id/btnRegister"

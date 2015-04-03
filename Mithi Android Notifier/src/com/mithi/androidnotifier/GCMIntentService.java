@@ -1,22 +1,15 @@
 package com.mithi.androidnotifier;
 
+import static com.mithi.androidnotifier.CommonUtilities.SENDER_ID;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
-import android.content.ComponentName; 
 
 import com.google.android.gcm.GCMBaseIntentService;
- 
-
-import com.mithi.androidnotifier.R;
-
-import static com.mithi.androidnotifier.CommonUtilities.SENDER_ID;
-import static com.mithi.androidnotifier.CommonUtilities.displayMessage;
  
 public class GCMIntentService extends GCMBaseIntentService {
 	
@@ -60,6 +53,11 @@ public class GCMIntentService extends GCMBaseIntentService {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         
         generateNotification(context, message);
+        
+        //Save to local notifications' database
+		DatabaseHandler dbh=new DatabaseHandler();
+		dbh.setMessage(message);
+		dbh.save();
     }
 
     

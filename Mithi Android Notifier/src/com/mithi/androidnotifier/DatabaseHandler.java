@@ -20,10 +20,26 @@ public class DatabaseHandler extends SugarRecord<DatabaseHandler> {
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return message;
 	}
 
+	public String getMessage() {
+		return message;
+	}
 
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getDatetime() {
+		return datetime;
+	}
+
+	public void setDatetime(String datetime) {
+		this.datetime = datetime;
+	}
+
+	
 
 
 }
