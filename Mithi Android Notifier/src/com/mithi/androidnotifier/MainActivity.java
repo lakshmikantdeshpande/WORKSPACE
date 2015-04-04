@@ -58,10 +58,10 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 					PlaceholderFragment.newInstance(position + 1)).commit();
 			break;
 		case 2:
-		      fragmentManager.beginTransaction()
-		      .replace(R.id.container,
-		    		  SecondFragment.newInstance(position + 1)).commit();
-		      break;
+			fragmentManager.beginTransaction()
+			.replace(R.id.container,
+					SecondFragment.newInstance(position + 1)).commit();
+			break;
 		}
 	}
 
@@ -116,7 +116,7 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 	 */
 	public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 		Button button1;
-		
+
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -142,10 +142,10 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
-			
+
 			button1=(Button)rootView.findViewById(R.id.button1);
 			button1.setOnClickListener(this);
-			
+
 			return rootView;
 		}
 
@@ -163,7 +163,8 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 			DatabaseHandler dbh=new DatabaseHandler("Hello",currentDateandTime);
 			dbh.save();
 		}
-		
+
+
 	}
 
 }

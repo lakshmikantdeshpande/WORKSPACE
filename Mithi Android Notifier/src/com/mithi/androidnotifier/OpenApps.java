@@ -7,21 +7,22 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class OpenApps extends Activity  {
-	
+
 	AlertDialogManager alert = new AlertDialogManager();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        
+
 		String receivedmessage=getIntent().getStringExtra("message");		
 
 		//Here, we need to know exact package name to get main intent of that application
 		//The package name is available on Google Play URL at the end of the URL
-		
+
 		Intent k9 = getPackageManager().getLaunchIntentForPackage("com.fsck.k9");
 		Intent acal=getPackageManager().getLaunchIntentForPackage("com.morphoss.acal");
-		
+		Intent intent=new Intent(this,MainActivity.class);
+
 		if (receivedmessage != null && !receivedmessage.isEmpty()) 
 		{
 			if(receivedmessage.equals("New Email"))
@@ -56,13 +57,17 @@ public class OpenApps extends Activity  {
 			else
 			{
 				//TODO : Check whether other notification is simply displayed in the browser...
-			//	Context context=getApplicationContext();
-			//	displayMessage(context,receivedmessage);
+				//	Context context=getApplicationContext();
+				//	displayMessage(context,receivedmessage);
 				Log.d("ReceivedMessage",receivedmessage);
-				alert.showAlertDialog(OpenApps.this, "Received message !", receivedmessage, false);
+
+				//alert.showAlertDialog(this, "Received message !", receivedmessage, false);
+				Toast.makeText(this, "RECEIVED MESSAGE:  " + receivedmessage, Toast.LENGTH_LONG).show();
+				finish();
+
 			}
 		}
-        //finish();
-		
+		//finish();
+
 	}
 }

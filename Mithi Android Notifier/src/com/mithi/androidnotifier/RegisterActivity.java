@@ -78,7 +78,7 @@ public class RegisterActivity extends Activity {
                     Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
                      
                     // Registering user on our server                   
-                    // Sending registraiton details to RegistrationActivity
+                    // Sending registration details to RegistrationActivity
                     i.putExtra("email", email);
                     i.putExtra("password", password);
                     startActivity(i);

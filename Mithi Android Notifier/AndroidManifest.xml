@@ -27,7 +27,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar" >
-       
         <meta-data
             android:name="DATABASE"
             android:value="com.mithi.androidnotifier.db" />
@@ -50,9 +49,15 @@
         </activity>
         <activity android:name=".WebBrowser" >
         </activity>
-        <activity android:name=".OpenApps" >
+        <activity
+            android:name=".OpenApps"
+            android:noHistory="true"
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-        <activity android:name=".Tobedeleted" >
+        <activity
+            android:name=".AlertDialogManager"
+            android:noHistory="true" >
         </activity>
         <activity
             android:name=".CheckRegistration"
@@ -69,7 +74,8 @@
         <!-- android:parentActivityName="com.mithi.androidnotifier.RegisterActivity"> -->
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_registration" >
+            android:label="@string/title_activity_registration"
+            android:noHistory="true" >
         </activity>
         <activity
             android:name=".RegistrationActivity"

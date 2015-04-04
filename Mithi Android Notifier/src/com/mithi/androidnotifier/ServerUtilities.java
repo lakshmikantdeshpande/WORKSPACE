@@ -14,7 +14,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,6 +29,9 @@ public final class ServerUtilities {
 	private static final int MAX_ATTEMPTS = 1;
 	private static final int BACKOFF_MILLI_SECONDS = 2000;
 	private static final Random random = new Random();
+
+	AlertDialogManager alert = new AlertDialogManager();
+
 
 	/**
 	 * Register this account/device pair within the server.
@@ -57,14 +63,18 @@ public final class ServerUtilities {
 				GCMRegistrar.setRegisteredOnServer(context, true);
 				String message = context.getString(R.string.server_registered);
 				// CommonUtilities.displayMessage(context, message);
-				
-				Handler handler =  new Handler(context.getMainLooper());
+
+				/*				Handler handler =  new Handler(context.getMainLooper());
 			    handler.post( new Runnable(){
 			        public void run(){
 			        	Toast.makeText(context, "Login Successful !!", Toast.LENGTH_SHORT).show(); 
 			        }
-			    });
-				 
+			    });*/
+
+				Intent intent=new Intent(context,CheckRegistration.class);
+				context.startActivity(intent);
+
+
 				return;
 			} catch (IOException e) {
 				// in final app, we can retry on unrecoverable errors only..
@@ -88,13 +98,24 @@ public final class ServerUtilities {
 		}
 		String message = context.getString(R.string.server_register_error,MAX_ATTEMPTS);
 		// CommonUtilities.displayMessage(context, message);
-		
-		Handler handler =  new Handler(context.getMainLooper());
+
+				Handler handler =  new Handler(context.getMainLooper());
 	    handler.post( new Runnable(){
 	        public void run(){
 	        	Toast.makeText(context, "Authentication Failure !!", Toast.LENGTH_SHORT).show(); 
 	        }
 	    });
+
+		Intent mStartActivity = new Intent(context, RegisterActivity.class);
+		int mPendingIntentId = 123456;
+		PendingIntent mPendingIntent = PendingIntent.getActivity(context, mPendingIntentId,    mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+		AlarmManager mgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+		mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+		System.exit(0);
+
+		Toast.makeText(context, "Authentication Failure !!", Toast.LENGTH_SHORT).show();
+		
+		
 	}
 
 	/**
