@@ -59,7 +59,6 @@ public class GCMIntentService extends GCMBaseIntentService {
         if(sharedPref.getString("receive", null).equals("true"))
         {
         	generateNotification(context, message);
-        	Log.d("chandu",sharedPref.getString("receive", null));
         }
         
 

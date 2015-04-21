@@ -86,7 +86,6 @@ public class RegistrationActivity extends Activity {
 					protected Void doInBackground(Void... params) {
 						// Register on mithi server
 						ServerUtilities.register(context, email, password, regId);
-
 						return null;
 					}
 
