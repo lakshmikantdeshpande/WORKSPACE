@@ -63,6 +63,10 @@ public class CheckRegistration extends Activity
 						{
 							Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
 							startActivity(intent);
+							
+							SharedPreferences.Editor editor = sharedPref.edit();
+							editor.putString("receive", "true");
+							editor.commit();
 						}
 						else
 						{

@@ -72,6 +72,7 @@ public final class ServerUtilities {
 			    });*/
 
 				Intent intent=new Intent(context,CheckRegistration.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent);
 
 

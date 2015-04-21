@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 public class GCMIntentService extends GCMBaseIntentService {
 	
     private static final String TAG = "GCMIntentService";
+    static SharedPreferences sharedPref;
  
     public GCMIntentService() {
         super(SENDER_ID);
@@ -51,15 +53,23 @@ public class GCMIntentService extends GCMBaseIntentService {
         String message = intent.getExtras().getString("price"); 
         //displayMessage(context, message);
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+
+		sharedPref=context.getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
+		
+        if(sharedPref.getString("receive", null).equals("true"))
+        {
+        	generateNotification(context, message);
+        	Log.d("chandu",sharedPref.getString("receive", null));
+        }
         
-        generateNotification(context, message);
+
         
         //Save to local notifications' database
 		DatabaseHandler dbh=new DatabaseHandler();
 		dbh.setMessage(message);
 		dbh.save();
     }
-
+    
     
     @Override
     protected void onDeletedMessages(Context context, int total) {
@@ -96,6 +106,10 @@ public class GCMIntentService extends GCMBaseIntentService {
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = new Notification(icon, message, when);
          
+
+		sharedPref=context.getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);      
+        
+        
         String title = context.getString(R.string.app_name);
          
         
@@ -126,8 +140,8 @@ public class GCMIntentService extends GCMBaseIntentService {
         notification.defaults |= Notification.DEFAULT_VIBRATE;
         
         //We can set different notification ID for different notifications...
-        notificationManager.notify((int)when, notification);
-        
+
+        	notificationManager.notify((int)when, notification);
  
     }
  
