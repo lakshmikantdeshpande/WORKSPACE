@@ -1,6 +1,7 @@
 package com.mithi.androidnotifier;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 
 public class SettingsActivity extends PreferenceActivity {
 	private CheckBoxPreference Check;
+	private Preference mithi,mithitwitter;
 	SharedPreferences sharedPref;
 
 	@SuppressWarnings("deprecation")
@@ -21,7 +23,27 @@ public class SettingsActivity extends PreferenceActivity {
 
 		sharedPref=getBaseContext().getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
 
+		mithi=(Preference)findPreference("mithi");
+		Intent intent1=new Intent(this,WebBrowser.class);
+		Bundle bundle1=new Bundle();
+		bundle1.putString("website","https://m.facebook.com/connect2mithi");
+		intent1.putExtras(bundle1);
+		mithi.setIntent(intent1);
+		
+		mithitwitter=(Preference)findPreference("mithitwitter");
+		Intent intent2=new Intent(this,WebBrowser.class);
+		Bundle bundle2=new Bundle();
+		bundle2.putString("website","https://mobile.twitter.com/connect2mithi");
+		intent2.putExtras(bundle2);
+		mithitwitter.setIntent(intent2);
+
+
+
+
+
 		Check=(CheckBoxPreference)findPreference("receive_notifications");
+
+
 
 		Check.setOnPreferenceChangeListener(new CheckBoxPreference.OnPreferenceChangeListener() {
 			public boolean onPreferenceChange(final Preference preference, final Object newValue) {
@@ -39,6 +61,8 @@ public class SettingsActivity extends PreferenceActivity {
 				return true;
 			}
 		});
+
+
 
 		//Back button 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
