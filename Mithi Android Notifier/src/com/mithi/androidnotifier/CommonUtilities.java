@@ -7,7 +7,8 @@ public final class CommonUtilities {
     
    // Registration URL
    //static final String SERVER_URL = "http://192.168.188.1/gcmdemo/register.php";
-   static final String SERVER_URL = "http://192.168.43.194/gcm/register.php";
+   static final String SERVER_URL = "http://192.168.43.194/gcmdemo/register.php";
+   static final String LOGOUT_URL = "http://192.168.43.194/gcmdemo/logout.php";
 
    // Google project id
    static final String SENDER_ID = "69552156334"; 

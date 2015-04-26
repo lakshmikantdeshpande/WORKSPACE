@@ -106,12 +106,31 @@ NavigationDrawerFragment.NavigationDrawerCallbacks {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		switch(id)
+		{
+		case R.id.action_settings:
 			Intent intent=new Intent(this,SettingsActivity.class);
 			startActivity(intent);
-			
+			return true;
+				
+		case R.id.action_example:
+			Intent intent1=new Intent(this,WebBrowser.class);
+			Bundle bundle1=new Bundle();
+			bundle1.putString("website","http://www.mithi.com");
+			intent1.putExtras(bundle1);
+			startActivity(intent1);
+			return true;
+		
+		case R.id.action_logout:
+			Intent intent2=new Intent(this,Logout.class);
+			startActivity(intent2);
+			return true;
+		
+		case R.id.action_quit:
+			finish();
 			return true;
 		}
+
 		return super.onOptionsItemSelected(item);
 	}
 

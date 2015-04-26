@@ -83,8 +83,8 @@
             android:name=".RegistrationActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Transparent" 
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@style/Theme.Transparent" >
         </activity>
 
         <receiver
@@ -106,6 +106,16 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".Logout"
+            android:label="@string/title_activity_logout"
+            android:noHistory="true"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Transparent" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mithi.androidnotifier.MainActivity" />
         </activity>
     </application>
 

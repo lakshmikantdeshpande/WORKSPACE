@@ -18,6 +18,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -70,7 +71,7 @@ public final class ServerUtilities {
 			        	Toast.makeText(context, "Login Successful !!", Toast.LENGTH_SHORT).show(); 
 			        }
 			    });*/
-
+				
 				Intent intent=new Intent(context,CheckRegistration.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				context.startActivity(intent);
@@ -106,7 +107,8 @@ public final class ServerUtilities {
 	        	Toast.makeText(context, "Authentication Failure !!", Toast.LENGTH_SHORT).show(); 
 	        }
 	    });
-
+	    
+	    //Restart current app 
 		Intent mStartActivity = new Intent(context, RegisterActivity.class);
 		int mPendingIntentId = 123456;
 		PendingIntent mPendingIntent = PendingIntent.getActivity(context, mPendingIntentId,    mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -201,4 +203,56 @@ public final class ServerUtilities {
 			}
 		}
 	}
+	
+	public static void logout(String endpoint, Map<String, String> params)
+			throws IOException {    
+
+		URL url;
+		try {
+			url = new URL(endpoint);
+		} catch (MalformedURLException e) {
+			throw new IllegalArgumentException("invalid url: " + endpoint);
+		}
+		StringBuilder bodyBuilder = new StringBuilder();
+		Iterator<Entry<String, String>> iterator = params.entrySet().iterator();
+		// constructs the POST body using the parameters
+		while (iterator.hasNext()) {
+			Entry<String, String> param = iterator.next();
+			bodyBuilder.append(param.getKey()).append('=')
+			.append(param.getValue());
+			if (iterator.hasNext()) {
+				bodyBuilder.append('&');
+			}
+		}
+		String body = bodyBuilder.toString();
+		Log.v(TAG, "Posting logout request '" + body + "' to " + url);
+		byte[] bytes = body.getBytes();
+		HttpURLConnection conn = null;
+		try {
+			Log.e("URL", "> " + url);
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setDoOutput(true);
+			conn.setUseCaches(false);
+			conn.setFixedLengthStreamingMode(bytes.length);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded;charset=UTF-8");
+			// post the request
+			OutputStream out = conn.getOutputStream();
+			out.write(bytes);
+			out.close();
+			// handle the response
+			int status = conn.getResponseCode();
+			Log.d("serverutilities","response code is"+status);
+			if (status != 200) {
+				throw new IOException("Could not log out... Response code is :  " + status);
+			}
+		} finally {
+			if (conn != null) {
+				conn.disconnect();
+			}
+		}
+	}
+	
+	
 }
