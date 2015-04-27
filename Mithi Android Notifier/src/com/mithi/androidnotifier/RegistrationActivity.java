@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gcm.GCMRegistrar;
-import com.mithi.androidnotifier.R;
 
 public class RegistrationActivity extends Activity {
 
@@ -59,8 +58,6 @@ public class RegistrationActivity extends Activity {
 		// Make sure the manifest was properly set
 		GCMRegistrar.checkManifest(this);
 
-		//lblMessage = (TextView) findViewById(R.id.lblMessage);
-
 		registerReceiver(mHandleMessageReceiver, new IntentFilter(DISPLAY_MESSAGE_ACTION));
 
 		// Get GCM registration id
@@ -76,9 +73,9 @@ public class RegistrationActivity extends Activity {
 				// Skips registration.              
 				Toast.makeText(getApplicationContext(), "Already registered with GCM", Toast.LENGTH_LONG).show();
 			} else {
+
 				// Try to register again, but not in the UI thread.
-				// It's also necessary to cancel the thread onDestroy(),
-				// hence the use of AsyncTask instead of a raw thread.
+
 				final Context context = this;
 				mRegisterTask = new AsyncTask<Void, Void, Void>() {
 
@@ -112,13 +109,6 @@ public class RegistrationActivity extends Activity {
 			String newMessage = intent.getExtras().getString(EXTRA_MESSAGE);
 			// Waking up mobile if it is sleeping
 			WakeLocker.acquire(getApplicationContext());
-
-			//TODO add notification to SQLite database
-			/* Take appropriate action on this message
-			 * depending upon your app requirement
-			 * For now i am just displaying it on the screen
-			 * */
-
 
 			// Showing received message
 			lblMessage.append(newMessage + "\n");           

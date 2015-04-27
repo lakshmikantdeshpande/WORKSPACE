@@ -6,13 +6,13 @@ import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.orm.query.Select;
+
+@SuppressWarnings("unused")
 
 public class SecondFragment extends ListFragment {
 
@@ -59,6 +59,8 @@ public class SecondFragment extends ListFragment {
 
 	public void updateList()
 	{
+		//This method will update the list elements as we will open second fragment screen again
+		
 		//	List<DatabaseHandler> messages = DatabaseHandler.listAll(DatabaseHandler.class);
 		List<DatabaseHandler> messages = Select.from(DatabaseHandler.class).orderBy("message").list();
 		ArrayAdapter<DatabaseHandler> adapter = new ArrayAdapter<DatabaseHandler>(getActivity(),R.layout.fragment_second_delete_button,R.id.taskTextView, messages);

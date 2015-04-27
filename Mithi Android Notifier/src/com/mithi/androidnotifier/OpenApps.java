@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+@SuppressWarnings("unused")
+
 public class OpenApps extends Activity  {
 
 	AlertDialogManager alert = new AlertDialogManager();
@@ -56,12 +58,11 @@ public class OpenApps extends Activity  {
 			}
 			else
 			{
-				//TODO : Check whether other notification is simply displayed in the browser...
 				//	Context context=getApplicationContext();
-				//	displayMessage(context,receivedmessage);
+				//	displayMessage(context,receivedmessage); <<REMOVED
 				Log.d("ReceivedMessage",receivedmessage);
 
-				//alert.showAlertDialog(this, "Received message !", receivedmessage, false);
+				//alert.showAlertDialog(this, "Received message !", receivedmessage, false); <<REMOVED
 				Toast.makeText(this, "RECEIVED MESSAGE:  " + receivedmessage, Toast.LENGTH_LONG).show();
 				finish();
 

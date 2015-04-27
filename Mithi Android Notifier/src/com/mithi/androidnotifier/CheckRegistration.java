@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gcm.GCMRegistrar;
@@ -16,7 +15,6 @@ public class CheckRegistration extends Activity
 
 	SharedPreferences sharedPref;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,10 +31,11 @@ public class CheckRegistration extends Activity
 			{
 				try
 				{
-					sleep(1000);
+					sleep(1000);		//Show splash screen for one second
 				}
 				catch(InterruptedException ie)
 				{
+					//Handler is used to run a process on UI thread (and not in the background)
 					handler.post(new Runnable(){
 						public void run()
 						{
@@ -46,7 +45,7 @@ public class CheckRegistration extends Activity
 				}
 				finally
 				{
-					finish();
+					finish();		//Close splash screen
 					if (GCMRegistrar.isRegisteredOnServer(getApplicationContext())) {
 						//Toast.makeText(getApplicationContext(), "Already registered with GCM", Toast.LENGTH_LONG).show();
 
@@ -57,31 +56,28 @@ public class CheckRegistration extends Activity
 							}
 						});
 
-						
-						//It will check whether the splash screen has been displayed before or not
-						if(sharedPref.getString("INTRO_SHOWN", null)==null)
+
+						//This flag will decide whether introduction screen is to be shown next time or not 
+						//INTRO_SHOWN flag will be stored in SharedPreferences
+
+						if(sharedPref.getString("INTRO_SHOWN", null)==null) //if intro is not shown
 						{
 							Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
 							startActivity(intent);
-							
+
 							SharedPreferences.Editor editor = sharedPref.edit();
 							editor.putString("receive", "true");
 							editor.commit();
 						}
-						else
+						else	//if intro is shown
 						{
 							Intent intent=new Intent(getApplicationContext(),MainActivity.class);
 							startActivity(intent);
 						}
 					}
-					else
+					
+					else		//if user is not registered on server
 					{
-						// we can launch new activity from here too...
-						// Intent intent=new Intent(getApplicationContext(),ClassName.class)
-						//startActivity(intent)
-						//For now, lets have some toast
-						//Toast.makeText(getApplicationContext(), "You have not registered it seems !", Toast.LENGTH_LONG).show();
-
 						handler.post(new Runnable(){
 							public void run()
 							{
@@ -89,10 +85,9 @@ public class CheckRegistration extends Activity
 							}
 						});
 
-						// Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
+						//Open Registration Screen
 						Intent intent=new Intent(getApplicationContext(),RegisterActivity.class);
 						startActivity(intent);        
-
 
 					}
 
@@ -104,7 +99,7 @@ public class CheckRegistration extends Activity
 		//  mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 		/* Either Preferences XML can be used, or isRegisteredOnServer method to check registration on server    
-    // second argument is the default to use if the preference can't be found
+    // second argument is the default to use if the preference can't be found in sharedPreferences
     Boolean isRegistered = mPrefs.getBoolean(prefs, false);
 		 */
 

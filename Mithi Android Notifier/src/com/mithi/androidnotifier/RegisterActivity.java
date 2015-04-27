@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.mithi.androidnotifier.R;
  
 public class RegisterActivity extends Activity {
     // alert dialog manager
@@ -73,8 +71,10 @@ public class RegisterActivity extends Activity {
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 
                 // Check if user filled the form
-                if(email.trim().length() > 0 && password.trim().length() > 0 && email.matches(emailPattern)){
-                    // Launch Main Activity
+                if(email.trim().length() > 0 && password.trim().length() > 0 && email.matches(emailPattern))
+               {
+                	// If everything is valid, 
+                	// Launch Main Activity
                     Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
                      
                     // Registering user on our server                   
@@ -83,7 +83,10 @@ public class RegisterActivity extends Activity {
                     i.putExtra("password", password);
                     startActivity(i);
                     //finish();
-                }else if(!email.matches(emailPattern)){
+                }
+                
+                else if(!email.matches(emailPattern))
+                {
                 	alert.showAlertDialog(RegisterActivity.this, "Invalid Email ID!", "Please enter a valid Email address !", false);
                 }
                 else

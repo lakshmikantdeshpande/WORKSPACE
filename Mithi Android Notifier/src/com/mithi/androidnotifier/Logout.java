@@ -36,16 +36,16 @@ public class Logout extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		// Inflate the menu on the UI
 		getMenuInflater().inflate(R.menu.logout, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+		
+		//This method gets called when a menu option is clicked.. 
+		
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -53,6 +53,8 @@ public class Logout extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	//Used to get rid of "Network on main thread exception"
+	
 	public void enableStrictMode()
 	{
 		StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -90,6 +92,7 @@ public class Logout extends Activity {
 				editor.commit();
 				Toast.makeText(context, "Logged out successfully !!", Toast.LENGTH_SHORT).show();
 				finish();
+				
 			    //Restart current app 
 				Intent mStartActivity = new Intent(context, CheckRegistration.class);
 				int mPendingIntentId = 123456;

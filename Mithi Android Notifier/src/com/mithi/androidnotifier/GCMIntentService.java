@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gcm.GCMBaseIntentService;
- 
+@SuppressWarnings("deprecation") 
 public class GCMIntentService extends GCMBaseIntentService {
 	
     private static final String TAG = "GCMIntentService";
@@ -21,37 +21,39 @@ public class GCMIntentService extends GCMBaseIntentService {
         super(SENDER_ID);
     }
  
-    /**
-     * Method called on device registered
-     **/
+    //This method gets called when the device gets registered on the GCM server
     @Override
     protected void onRegistered(Context context, String registrationId) {
         Log.i(TAG, "Device registered: regId = " + registrationId);
-       // displayMessage(context, "Your device has been registered with GCM");
+       // displayMessage(context, "Your device has been registered with GCM"); <<REMOVED
         Toast.makeText(context, "Your device has been registered with GCM", Toast.LENGTH_SHORT).show();
         Log.d("Email :", RegistrationActivity.email);
         ServerUtilities.register(context, RegistrationActivity.email, RegistrationActivity.password, registrationId);
     }
  
-    /**
-     * Method called on device un registred
-     * */
+    //This method gets called when the device gets unregistered from the GCM server
     @Override
     protected void onUnregistered(Context context, String registrationId) {
         Log.i(TAG, "Your device has been unregistered from GCM");
-        //displayMessage(context, getString(R.string.gcm_unregistered));
+        //displayMessage(context, getString(R.string.gcm_unregistered));  <<REMOVED
         Toast.makeText(context, "Your device has been unregistered from GCM", Toast.LENGTH_SHORT).show();
         ServerUtilities.unregister(context, registrationId);
     }
  
 
+    
+    //When a notification is received, this method will check for receive flag in sharedpreferences file
+    //if it's true, a notification is issued
     @Override
     protected void onMessage(Context context, Intent intent) {
         Log.i(TAG, "Received message");
         
-        //price field is used to send message through the web
+        //we've used price field in GCM message JSON... 
+        //So, we've attached it to intent bundle
+        
         String message = intent.getExtras().getString("price"); 
-        //displayMessage(context, message);
+       
+        //displayMessage(context, message); <<REMOVED
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
 		sharedPref=context.getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
@@ -63,7 +65,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         
 
         
-        //Save to local notifications' database
+        //Save to local notifications' database with the help of Sugar ORM
 		DatabaseHandler dbh=new DatabaseHandler();
 		dbh.setMessage(message);
 		dbh.save();
@@ -74,7 +76,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     protected void onDeletedMessages(Context context, int total) {
         Log.i(TAG, "Received deleted messages notification");
         String message = getString(R.string.gcm_deleted, total);
-        //displayMessage(context, message);
+        //displayMessage(context, message); <<REMOVED
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         
         generateNotification(context, message);
@@ -84,7 +86,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     @Override
     public void onError(Context context, String errorId) {
         Log.i(TAG, "Received error: " + errorId);
-        //displayMessage(context, getString(R.string.gcm_error, errorId));
+        //displayMessage(context, getString(R.string.gcm_error, errorId)); <<REMOVED
         Toast.makeText(context, "GCM Error !", Toast.LENGTH_SHORT).show();
     }
  
@@ -92,7 +94,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     protected boolean onRecoverableError(Context context, String errorId) {
         // log message
         Log.i(TAG, "Received recoverable error: " + errorId);
-        //displayMessage(context, getString(R.string.gcm_recoverable_error,errorId));
+        //displayMessage(context, getString(R.string.gcm_recoverable_error,errorId));	<<REMOVED
         Toast.makeText(context, "GCM recoverable error !", Toast.LENGTH_SHORT).show();
         return super.onRecoverableError(context, errorId);
     }

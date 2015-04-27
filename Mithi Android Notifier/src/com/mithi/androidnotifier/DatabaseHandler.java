@@ -2,6 +2,8 @@ package com.mithi.androidnotifier;
 
 import com.orm.SugarRecord;
 
+//We are using this class to handle SQLite database
+
 public class DatabaseHandler extends SugarRecord<DatabaseHandler> {
 
 	String message;
@@ -23,6 +25,8 @@ public class DatabaseHandler extends SugarRecord<DatabaseHandler> {
 		return message;
 	}
 
+	//GETTERS AND SETTERS
+	
 	public String getMessage() {
 		return message;
 	}
