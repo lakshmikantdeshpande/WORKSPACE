@@ -4,13 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +19,7 @@ import com.google.android.gcm.GCMRegistrar;
 
 public class Logout extends Activity {
 	SharedPreferences sharedPref;
+	SharedPreferences settings;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -63,7 +62,8 @@ public class Logout extends Activity {
 	
 	public void logout(Context context)
 	{
-		sharedPref=context.getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
+		sharedPref=getBaseContext().getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
+		settings=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
 		String server_url=CommonUtilities.LOGOUT_URL;
 		String regid=GCMRegistrar.getRegistrationId(context);
@@ -83,23 +83,27 @@ public class Logout extends Activity {
 				Log.d("word","no");
 				//reset all sharedpreferences flags
 				SharedPreferences.Editor editor = sharedPref.edit();
-				editor.putString("receive_notifications", "true");
-				editor.putString("navigation_learned", "false");
-				editor.putString("INTRO_SHOWN", "false");
+				SharedPreferences.Editor ed=settings.edit();
+
+				ed.putBoolean("receive_notifications", true);
 				editor.putString("receive", "true");
+				ed.putBoolean("navigation_drawer_learned", false);
+				editor.putString("INTRO_SHOWN", "false");
+				editor.commit();
+				ed.commit();
 				GCMRegistrar.unregister(context);
 				GCMRegistrar.setRegisteredOnServer(context, false);
-				editor.commit();
+				DatabaseHandler.deleteAll(DatabaseHandler.class);
 				Toast.makeText(context, "Logged out successfully !!", Toast.LENGTH_SHORT).show();
-				finish();
+				System.exit(0);
 				
 			    //Restart current app 
-				Intent mStartActivity = new Intent(context, CheckRegistration.class);
+				/*Intent mStartActivity = new Intent(context, CheckRegistration.class);
 				int mPendingIntentId = 123456;
 				PendingIntent mPendingIntent = PendingIntent.getActivity(context, mPendingIntentId,    mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
 				AlarmManager mgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 				mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-				System.exit(0);
+				System.exit(0);*/
 			}
 			catch(Exception e)
 			{

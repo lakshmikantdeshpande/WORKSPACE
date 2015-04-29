@@ -1,3 +1,4 @@
+
 create database gcm;
 
 use gcm;
@@ -12,6 +13,8 @@ CREATE TABLE IF NOT EXISTS `gcm_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
+Our app will use this table for registering it's gcm & mpns id
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 CREATE TABLE IF NOT EXISTS `registration` (
   `email` varchar(255) NOT NULL primary key,
   `password` varchar(255) NOT NULL,
@@ -21,3 +24,17 @@ CREATE TABLE IF NOT EXISTS `registration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into registration values('sd0389@gmail.com','inspiron','APA91bGkPqBHx6C1kBjkwJzxvOyfCx9jm4V-hu8G_2T7y-OPc2gOlsR37GxTK0giBd17EAwMX63Lwcs3ybUEFevYMjfQNLhgLlWSFJEJmu4TQuIrz-qh1MhfhA8ktMS3apqiG4mUKFIV3TF7w20yXKMOeq7vm0IQycpdbAhTthB7goZBuqbuA_c','bye','1');
+
+
+
+
+This table holds usernames and passwords of administrator accounts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CREATE TABLE IF NOT EXISTS `login`(
+	`email` varchar(255) NOT NULL primary key,
+	`password` varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	
+insert into login values('admin@mithi.com','passkey');
+
+
+

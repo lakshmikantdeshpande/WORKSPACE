@@ -60,7 +60,7 @@ public class CheckRegistration extends Activity
 						//This flag will decide whether introduction screen is to be shown next time or not 
 						//INTRO_SHOWN flag will be stored in SharedPreferences
 
-						if(sharedPref.getString("INTRO_SHOWN", null)==null) //if intro is not shown
+						if((sharedPref.getString("INTRO_SHOWN", null)==null) || (sharedPref.getString("INTRO_SHOWN", null).equals("false"))) //if intro is not shown
 						{
 							Intent intent=new Intent(getApplicationContext(),ScreenSlideActivity.class);
 							startActivity(intent);

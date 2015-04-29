@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
@@ -14,6 +15,7 @@ public class SettingsActivity extends PreferenceActivity {
 	private CheckBoxPreference Check;
 	private Preference mithi,mithitwitter;
 	SharedPreferences sharedPref;
+	SharedPreferences settings;
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -22,6 +24,7 @@ public class SettingsActivity extends PreferenceActivity {
 		addPreferencesFromResource(R.xml.preferences);
 
 		sharedPref=getBaseContext().getSharedPreferences("USER_PREFS",Context.MODE_PRIVATE);
+		settings=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
 		mithi=(Preference)findPreference("mithi");
 		Intent intent1=new Intent(this,WebBrowser.class);
@@ -83,5 +86,4 @@ public class SettingsActivity extends PreferenceActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
 }
