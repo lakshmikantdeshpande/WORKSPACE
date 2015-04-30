@@ -188,6 +188,7 @@ public final class ServerUtilities {
 			conn.setRequestProperty("Content-Type",
 					"application/x-www-form-urlencoded;charset=UTF-8");
 			// post the request
+            conn.setConnectTimeout(5 * 1000);
 			OutputStream out = conn.getOutputStream();
 			out.write(bytes);
 			out.close();
@@ -238,6 +239,7 @@ public final class ServerUtilities {
 			conn.setRequestProperty("Content-Type",
 					"application/x-www-form-urlencoded;charset=UTF-8");
 			// post the request
+            conn.setConnectTimeout(5 * 1000);
 			OutputStream out = conn.getOutputStream();
 			out.write(bytes);
 			out.close();
