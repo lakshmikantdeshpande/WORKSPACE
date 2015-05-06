@@ -12,9 +12,11 @@ public final class CommonUtilities {
  //  static final String LOGOUT_URL = "http://192.168.43.194/gcmdemo/logout.php";
 
    
-   static final String SERVER_URL = "http://192.168.43.194/gcmdemo/register.php";
-   static final String LOGOUT_URL = "http://192.168.43.194/gcmdemo/logout.php";
+ //  static final String SERVER_URL = "http://192.168.43.194/ashish/gcmdemo/register.php";
+ //  static final String LOGOUT_URL = "http://192.168.43.194/ashish/gcmdemo/logout.php";
 
+	  static final String SERVER_URL = "http://52.74.186.76/ashish/gcmdemo/register.php";
+	  static final String LOGOUT_URL = "http://52.74.186.76/ashish/gcmdemo/logout.php";
    
    
    // Google project id ... to be created by Mithi
